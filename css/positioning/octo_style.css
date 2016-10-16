@@ -1,0 +1,25 @@
+* {
+	//outline: 1px solid red;
+}
+
+#octopus {
+	position: absolute;
+	margin: 90px auto;
+	left: 0px;
+	right: 30px;
+	z-index: -1;
+}
+
+#glasses {
+	position: absolute;
+	margin: 190px auto;
+	left: 0;
+	right: 25px;
+}
+
+#hat {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+}
