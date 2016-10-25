@@ -1,3 +1,5 @@
+Release 0
+
 Mr. Roboto's Elevator Algorithm
 
 - Determine which floor you are on
@@ -11,8 +13,34 @@ Mr. Roboto's Elevator Algorithm
 - Navigate to the buttons
 - From the buttons scan for the button indicating your desired floor
 	- If you found the button
-		- Click the button
+		- Click the button until it is illuminated
 	- Otherwise get out of the elevator and look for help
 - Locate the screen indicating which floor you are on (it will be changing)
 - Once the screen says your selected floor and the door opens
 	- Exit the Elevator. 
+
+~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+Release 1
+
+Making Tea
+
+- Assess your need for caffeine
+- Check an unchecked location (pantry, cabinet, counter, table)
+	- If there is black tea in there AND you need caffeine
+		- Grab a packet
+	- If there is herbal tea in there AND you do NOT need caffeine
+		- Grab a packet
+	- Otherwise check the next unchecked location
+- Open packet and put tea bag in a mug
+- Fill the teapot with at least enough water to fill the mug
+- Place the teapot on the stove and turn heat on
+- When you hear the teapot whistle loudle
+	- Turn off heat, and pour water into the mug with the tea bag.
+- If you chose black tea
+	- Set timer for 5 minutes 
+- Otehrwise if you chose herbal tea
+	- Set timer for 10 minutes
+- When the timer goes off
+	- Remove the tea bag and dispose of in the compost
+- Drink yo tea!!! 
