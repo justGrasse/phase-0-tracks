@@ -1,0 +1,18 @@
+Mr. Roboto's Elevator Algorithm
+
+- Determine which floor you are on
+- If you are on the right floor, YOU DID IT!
+- Otherwise if your destination is higher than your floor
+	- Select the button pointing up
+- Otherwise if your destination is lower than your floor
+	- Select the button pointing down
+- When the elevator door opens
+	- Enter the Elevator
+- Navigate to the buttons
+- From the buttons scan for the button indicating your desired floor
+	- If you found the button
+		- Click the button
+	- Otherwise get out of the elevator and look for help
+- Locate the screen indicating which floor you are on (it will be changing)
+- Once the screen says your selected floor and the door opens
+	- Exit the Elevator. 
