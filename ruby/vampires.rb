@@ -1,6 +1,8 @@
 puts "How many prospective employees will be taking this survey?"
 num_participants = gets.to_i
 
+# Prospective Employee Survey
+
 while num_participants > 0
 
 	puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
@@ -39,11 +41,12 @@ while num_participants > 0
 			puts "Probably a vampire."
 			break
 		end
-		"Please input another allergy or 'done' to finish."
+		puts "Please input another allergy or 'done' to finish."
 	end
 
 	if allergy == "sunshine" || allergy == "sun"
-		break
+		num_participants -= 1
+		next
 	end
 	
 	decision = "Results inconclusive."
@@ -72,10 +75,14 @@ while num_participants > 0
 		decision = "Definitely a vampire."
 	end
 	
-	# Otherwise, print “Results inconclusive.”
+	# Otherwise, decision would print “Results inconclusive.”
 	
 	puts decision
 
+	# Move to next participant
 	num_participants -= 1
 
 end
+
+puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
