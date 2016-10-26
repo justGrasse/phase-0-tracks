@@ -19,3 +19,20 @@ is_docile = to_boo(gets.chomp)
 puts "Estimated age?"
 age = nil
 age = gets.to_i
+
+if volume > 7
+	noisy_level = "REALLY NOISY"
+elsif volume > 4
+	noisy_level = "the perfect amount of noisy"
+else
+	noisy_level = "pretty shy"
+end
+
+if is_docile
+	maybe = "SO TOTALLY"
+else
+	maybe = "not quite"
+end
+
+puts "Coolio! Your #{age}-year-old, #{fur_color} hamster, #{name} sounds rad, yo!
+It sounds like it is #{noisy_level}. It looks like it is #{maybe} ready for adoption."
