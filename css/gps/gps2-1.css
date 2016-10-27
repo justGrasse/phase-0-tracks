@@ -1,3 +1,50 @@
-* {
-	/*outline: 1px solid hotpink;*/
+body {
+  font-family: helvetica;
+}
+header {
+  background-color:gray;
+  padding: 3px;
+  margin: 5px;
+  border-style: solid;
+  border-width: 5px;
+}
+
+img {
+  display: block;
+  width:80%;
+  margin: 10px auto;
+}
+
+h1, h2, h3 {
+  text-decoration: underline;
+}
+
+.column-1 {
+  background-color:purple;
+  float: left;
+  width: 45%; 
+  padding: 5px;
+  border-style: solid;
+  border-width: 3px;
+}
+
+.column-2 {
+  background-color:green;
+  float: left;
+  width: 45%;
+  padding: 5px;
+  margin-left: 15px;
+  border-style: solid;
+  border-width: 3px;
+}
+
+footer {
+    background-color:red;
+    clear: both;
+    padding: 5px;
+    text-align: center;
+}
+
+a:visited {
+  color: red
 }
