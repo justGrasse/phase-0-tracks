@@ -52,19 +52,42 @@ board_games = {
 }
 
 # WORKING WITH NESTED DATA STRUCTURES:
-
+ 
 # Can 5 people play ascension?
 
-ascension_min = board_games[:ascension][min_players]
-ascension_max = board_games[:ascension][max_players]
+ascension_min = board_games[:ascension][:min_players]
+ascension_max = board_games[:ascension][:max_players]
 
+puts "Ascension can be played with #{ascension_min} to #{ascension_max} players."
+
+if ascension_min <= 5 && 5 <= ascension_max
+	puts "You guys can totally play!"
+else
+	puts "You better find another game!"
+end
 
 # Which games are card games? via theme
 
-# card_game_array
+puts
+puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
+puts
+
+card_game_array = []
+board_games.map do |key, value|
+	if board_games[key][:theme].include? 'card game'
+		card_game_array << key
+	end
+end
+
+puts "Here are the available card games:"
+puts card_game_array
 
 
 # Add Adventure Time Munchkin, the game
+
+puts
+puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
+puts
 
 board_games[:adventure_time_munchkin] = {
 	min_players: 3,
@@ -86,6 +109,10 @@ puts board_games[:adventure_time_munchkin]
 
 
 # Add 50 cards to Cards against humanity
+
+puts
+puts "*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*"
+puts
 
 board_games[:cards_against_humanity][:contents][:cards] +=50
 
