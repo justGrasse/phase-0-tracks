@@ -55,13 +55,11 @@ arr = [3,2,1]
 big_arr = [3,253,3463,46,6,3346,3333]
 repeat_nums = [2,6,568,6,6,235,6,45,44444,6666]
 rando_alphie = "jhzvsdkcvwhjev".split('')
-alpha_numero = [3,325,"three",34,"shfifty shfive",55]
 
 p bubble_sort(arr)
 p bubble_sort(big_arr)
 p bubble_sort(repeat_nums)
 p bubble_sort(rando_alphie).join('')
-p bubble_sort(alpha_numero)
 
 
 
