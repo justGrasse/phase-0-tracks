@@ -56,42 +56,46 @@ class Santa
 
 end
 
+
+
 # DRIVER CODE
 
 santas = []
 example_genders = ['agender', 'female', 'bigender', 'male', 'female', 'gender fluid', 'N/A']
 example_ethnicities = ['black', 'Latino', 'white', 'Japanese-African', 'prefer not to say', 'Mystical Creature (unicorn)', 'N/A']
-example_genders.length.times do |i|
-  # puts
-  # puts "Creating a #{example_genders[i]} #{example_ethnicities[i]} Santa!"
-  santas.push(Santa.new(example_genders[i], example_ethnicities[i]))
-  # puts "There are now #{santas.length} Santas!"
-  # puts
+100.times do |i|
+  santas.push(Santa.new(example_genders.sample, example_ethnicities.sample))
+  (rand(141)).times {santas[i].celebrate_birthday}
 end
 
-cookies = ['Peanut Butter Cookie', 'Ginger Snap', 'Choco-Chippy', 'Thin Mint']
-
-santas.each do |santa|
-	santa.speak
-	santa.eat_milk_and_cookies(cookies.sample)
-	puts '*~'*20+'*'
+santas.each_index do |i|
+	temp = santas[i]
+	puts "Santa #{i+1} is a #{temp.age}-year-old, #{temp.ethnicity}, #{temp.gender} Santa."
 end
 
 
 
 # TEST CODE
 
-craig = santas[0]
-craig.gender = "man-bear"
-puts "Craigs's a #{craig.gender}!"
-29.times{craig.celebrate_birthday}
+# craig = santas[0]
+# craig.gender = "man-bear"
+# puts "Craigs's a #{craig.gender}!"
+# 29.times{craig.celebrate_birthday}
 
-puts "Craig is a #{craig.age}-year-old, #{craig.ethnicity} Santa!"
+# puts "Craig is a #{craig.age}-year-old, #{craig.ethnicity} Santa!"
 
 
 # santas[0].get_mad_at('Vixen')
 # santas[0].get_mad_at('Rudolph')
 # santas[0].get_mad_at('joe')
+
+# cookies = ['Peanut Butter Cookie', 'Ginger Snap', 'Choco-Chippy', 'Thin Mint']
+
+# santas.each do |santa|
+# 	santa.speak
+# 	santa.eat_milk_and_cookies(cookies.sample)
+# 	puts '*~'*20+'*'
+# end
 
 # santa_1 = Santa.new
 # santa_1.speak
