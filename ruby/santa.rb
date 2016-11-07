@@ -35,20 +35,24 @@ class Santa
 
 	# Getter Methods
 
-	def age
-		@age
-	end
+	attr_reader :age, :ethnicity
 
-	def ethnicity
-		@ethnicity
-	end
+	# def age
+	# 	@age
+	# end
+
+	# def ethnicity
+	# 	@ethnicity
+	# end
 
 	# Setter Methods
 
-	def gender=(new_gender)
-		@gender = new_gender
-		puts "Now, I'm a #{@gender}"
-	end
+	attr_accessor :gender
+
+	# def gender=(new_gender)
+	# 	@gender = new_gender
+	# 	puts "Now, I'm a #{@gender}"
+	# end
 
 end
 
@@ -77,10 +81,11 @@ end
 
 # TEST CODE
 
-santas[0].gender = "man-bear"
-
 craig = santas[0]
+craig.gender = "man-bear"
+puts "Craigs's a #{craig.gender}!"
 29.times{craig.celebrate_birthday}
+
 puts "Craig is a #{craig.age}-year-old, #{craig.ethnicity} Santa!"
 
 
