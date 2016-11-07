@@ -19,6 +19,37 @@ class Santa
 		puts "That was a good #{cookie}!"
 	end
 
+	def celebrate_birthday
+		@age += 1
+	end
+
+	def get_mad_at(reindeer)
+		rank = @reindeer_ranking.index(reindeer)
+		if rank
+			@reindeer_ranking.insert(-1,@reindeer_ranking.delete_at(@reindeer_ranking.index(reindeer)))
+		else
+			# puts "That ain't no reindeer!"
+		end
+		# p @reindeer_ranking
+	end
+
+	# Getter Methods
+
+	def age
+		@age
+	end
+
+	def ethnicity
+		@ethnicity
+	end
+
+	# Setter Methods
+
+	def gender=(new_gender)
+		@gender = new_gender
+		puts "Now, I'm a #{@gender}"
+	end
+
 end
 
 # DRIVER CODE
@@ -42,7 +73,20 @@ santas.each do |santa|
 	puts '*~'*20+'*'
 end
 
+
+
 # TEST CODE
+
+santas[0].gender = "man-bear"
+
+craig = santas[0]
+29.times{craig.celebrate_birthday}
+puts "Craig is a #{craig.age}-year-old, #{craig.ethnicity} Santa!"
+
+
+# santas[0].get_mad_at('Vixen')
+# santas[0].get_mad_at('Rudolph')
+# santas[0].get_mad_at('joe')
 
 # santa_1 = Santa.new
 # santa_1.speak
