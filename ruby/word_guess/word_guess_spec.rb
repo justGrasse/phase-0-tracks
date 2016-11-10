@@ -12,4 +12,8 @@ describe Game do
     expect(game.password).to eq 'Quackers'
   end
 
+  it "set the the board" do
+    expect(game.board.join(' ')).to eq '_ _ _ _ _ _ _ _'
+  end
+
 end
