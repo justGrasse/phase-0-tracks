@@ -1,5 +1,15 @@
 # DOMAIN LOGIC
 
+class Game
+
+	attr_reader :password
+
+	def initialize(password)
+		@password = password
+	end
+
+
+end
 
 
 
