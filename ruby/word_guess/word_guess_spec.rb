@@ -26,8 +26,16 @@ describe Game do
     expect(game.check_guess("z")).to eq ['_','_','_','_','_']
   end
 
-  it "checks if a guess is valid" do
-    expect(game.is_valid("huh") && game.is_valid(",")).to eq false
+  it "checks if a multiple letter guess is denied" do
+    expect(game.is_valid("huh")).to eq false
+  end
+
+  it "checks if a non-letter guess is denied" do
+    expect(game.is_valid(",")).to eq false
+  end
+
+  it "checks if a valid guess is accepted" do
+    expect(game.is_valid("h").to eq true
   end
 
 end
