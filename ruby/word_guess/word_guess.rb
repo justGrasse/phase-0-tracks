@@ -25,16 +25,32 @@ class Game
 		puts "correct_letters is #{correct_indices}"
 
 		# if (repeated letter)
-		if @used_letters.index(letter)
+		if is_valid(letter)
+
+		# if (repeated letter)
+		elsif @used_letters.index(letter)
 			repeat_letter(letter)
+		
 		# if (no correct letters)		
 		elsif correct_indices == []
 			wrong_guess(letter)
+		
 		# if (correct letters)
 		else
 			add_letter(correct_indices)
 		end
+		
 		@board	
+	end
+
+	def is_valid(guess)
+		alpha = "abcdefghijklmnopqrstuvwxyz"
+		if guess.length != 1
+			false
+		elsif alpha.index(guess.downcase)
+			true	
+		end
+		false
 	end
 
 	def repeat_letter(letter)
