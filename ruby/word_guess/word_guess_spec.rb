@@ -42,4 +42,8 @@ describe Game do
     expect(bad_game.valid_password).to eq false
   end
 
+  it "checks that 5-letter words get 7 guesses" do
+    expect(game.guess_max).to eq 7
+  end
+
 end
