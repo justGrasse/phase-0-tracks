@@ -3,6 +3,7 @@
 class Game
 
 	attr_reader :password
+	attr_reader :guess_max
 	attr_reader :guess_count
 	attr_reader :is_over
 	attr_reader :board
@@ -15,6 +16,8 @@ class Game
 		@is_over = false
 		@board = ['_']*password.length
 		@used_letters = []
+		# GUESSES: 7 for 3-5 letters, 8 for 6-8, 9 for 9-11, 10 for 12-14
+		@guess_max = 6 + @password.length/3 
 	end
 
 	def check_guess(letter)
@@ -68,10 +71,10 @@ class Game
 		# puts "wrong_guess(#{letter}) begins"
 		@guess_count += 1
 		puts "\nWRONG!!! There is no '#{letter}'."
-		if @guess_count == 7
+		if @guess_count == @guess_max
 			lose_game
 		else
-			puts "You have #{7 - @guess_count} guesses left."
+			puts "You have #{@guess_max - @guess_count} guesses left."
 		end
 	end
 
@@ -97,10 +100,15 @@ class Game
 
 	def valid_password
 		@password.each_index{ |i|
-			if !"abcdefghijklmnopqrstuvwxyz".index(@password[i].downcase)
-				return false
-			end
+			return false if !"abcdefghijklmnopqrstuvwxyz".index(@password[i].downcase)
 		}
+		if @password.length < 3 
+			puts "Password is TOO short, must be at least 3 letters MIN."
+			return false
+		elsif @password.length >14
+			puts "Password is TOO long, must be no more than 14 letters MAX."
+			return false
+		end
 		true
 	end
 
