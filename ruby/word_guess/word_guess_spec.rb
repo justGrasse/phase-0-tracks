@@ -7,7 +7,7 @@ require_relative 'word_guess'
 
 describe Game do
   let(:game) { Game.new('Quack') }
-  let(:used_letters) { ['R'] }
+  let(:bad_game) { Game.new('1nval1d') }
   
 
   it "set the password to 'Quack'" do
@@ -35,7 +35,11 @@ describe Game do
   end
 
   it "checks if a valid guess is accepted" do
-    expect(game.is_valid("h").to eq true
+    expect(game.is_valid("h")).to eq true
+  end
+
+  it "checks that passwords with non-letters are not accepted" do
+    expect(bad_game.valid_password).to eq false
   end
 
 end

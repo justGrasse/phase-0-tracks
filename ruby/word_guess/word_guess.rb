@@ -107,7 +107,6 @@ class Game
 end
 
 
-
 # DRIVER LOGIC
 
 puts "Welcome to 'GUESS THE WORD'!"
@@ -126,15 +125,14 @@ while !game.is_over
 	puts '*~'*20+'*'
 	puts "Here's the board:"
 	puts game.board.join (' ')
+	# Get guess from Player2
 	puts "Player 2: Guess a letter:"
-	letter_guess = gets.chomp
+	letter_guess = gets
+	letter_guess ||= ''
+	letter_guess.chomp!
 
-	# Display the BOARD
+	# Check the guess + Display the BOARD
 	puts '*~'*20+'*'
 	game.check_guess(letter_guess)
-
-	# Get GUESS from user #2
-
+	
 end
-
-# Display CONGRATS or FAILURE message
