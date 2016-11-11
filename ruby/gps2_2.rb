@@ -74,3 +74,27 @@ update_qty(list,'pizza',5)
 update_qty(list,'blitza',5)
 
 pretty_print(list)
+
+=begin
+	
+
+What did you learn about pseudocode from working on this challenge?
+- I learned that pseduocoding is far different to different people, and it needs to be adapted to your style of programming (or your 'groups').  It's very valuable to spend time pseudocoding with the intent of making your code readable in the future.
+
+What are the tradeoffs of using arrays and hashes for this challenge?
+- The hash was a must, because each item (the values) had associated data (a key).  Doing that with an array would be a nightmare, and require some crazy coding gymnastics.
+
+What does a method return?
+- Without an explicit return (e.g. 'return lassie'), it will return the last expression (line of code).  This is the implicit return.
+
+What kind of things can you pass into methods as arguments?
+- Any datatype: arrays, strings, integers, floats, hashes, method calls, even blocks of code! 
+
+How can you pass information between methods?
+- Using the return  value of the method 
+e.g. >> gimme_the_stuff(get_the_stuff_first(stuff))
+
+What concepts were solidified in this challenge, and what concepts are still confusing?
+- The value of pseudocoding, I usually liked to jump write into the code, but being forced to pseudocode made that process very efficient.  Also best practices, keeping code (1) dry, (2) readable, and (3) efficient
+
+=end
