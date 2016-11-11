@@ -8,6 +8,7 @@ class Game
 	attr_reader :board
 	attr_reader :used_letters # ALL CAPS
 
+
 	def initialize(password)
 		@password = password.split('')
 		@guess_count = 0
@@ -94,6 +95,15 @@ class Game
 		puts "#{@password.join(' ')}"
 	end
 
+	def valid_password
+		@password.each_index{ |i|
+			if !"abcdefghijklmnopqrstuvwxyz".index(@password[i].downcase)
+				return false
+			end
+		}
+		true
+	end
+
 end
 
 
@@ -104,6 +114,12 @@ puts "Welcome to 'GUESS THE WORD'!"
 # Get the WORD from user #1
 puts "Player 1: What is the password?"
 game = Game.new(gets.chomp)
+
+until game.valid_password
+	puts "Please use letters only:"
+	game = Game.new(gets.chomp)
+end
+
 
 # Check if the game is over, otherwise
 while !game.is_over
