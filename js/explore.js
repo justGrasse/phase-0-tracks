@@ -1,3 +1,5 @@
+// DOMAIN LOGIC
+
 // Declare function reverse
 function reverse(str){
 	// Declare an empty string variable
@@ -12,4 +14,9 @@ function reverse(str){
 	return newStr;
 }
 
-console.log(reverse("hello"));
+
+// DRIVER LOGIC
+
+var sendHimBack = reverse("Alex Trebek");
+
+console.log(sendHimBack);
