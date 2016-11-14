@@ -19,4 +19,6 @@ function reverse(str){
 
 var sendHimBack = reverse("Alex Trebek");
 
-console.log(sendHimBack);
+if ("Alex Trebek" != "Human"){
+	console.log(sendHimBack);
+}
