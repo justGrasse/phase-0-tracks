@@ -31,6 +31,16 @@ function shareProp(obj1, obj2){
 	return false;
 }
 
+// GENERATE A RANDOM ARRAY OF RANDOM STRINGS
+// Declare a function to build a random string array
+	// Initialize a random array <empty>
+	// Iterate n times per input
+		// Push a random string to the random array
+	// Return the random array
+
+
+
+
 // DRIVER CODE //
 
 var phraseArr = ["long phrase","longest phrase","longer phrase"];
