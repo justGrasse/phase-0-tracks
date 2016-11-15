@@ -18,11 +18,18 @@ function grabLongString(strArr){
 
 // FIND A KEY-VALUE MATCH
 // Declare a function to check if any key-value's match
-	// Initialize a check value to false
+function shareProp(obj1, obj2){
 	// Iterate through each key of the first object
+	for (var key in obj1){
 		// Check if the key-value pair exists in second object
-		// If there is a match return check value set to true 
-
+		if(obj1[key] == obj2[key]){
+		// If there is a match return true
+			return true;
+		}
+	}
+	// Return false otherwise 
+	return false;
+}
 
 // DRIVER CODE //
 
@@ -39,3 +46,11 @@ var electionArr = ["the first election",
 	"The THANK GOD it's FINALLY IS OVER ELECTION of 20 FRIGGN 16"];
 longElection = grabLongString(electionArr);
 console.log(longElection);
+
+var user1 = {name: "Steven", age: 54, surname: "Universe"}; 
+var user2 = {name: "Tamir", age: 54};
+console.log("This should be true: " + shareProp(user1,user2));
+
+var movie1 = {title: "Halloween", genre: "horror", hasSeen: true}; 
+var movie2 = {title: "Boo: A Madea Halloween", genre: "comedy", hasSeen: false};
+console.log("This should be false: " + shareProp(movie1,movie2));
