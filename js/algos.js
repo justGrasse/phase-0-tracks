@@ -33,11 +33,21 @@ function shareProp(obj1, obj2){
 
 // GENERATE A RANDOM ARRAY OF RANDOM STRINGS
 // Declare a function to build a random string array
+function shareProp(num){
 	// Initialize a random array <empty>
+	var randomArr = [];
 	// Iterate n times per input
-		// Push a random string to the random array
-	// Return the random array
+	for (i = 0; i < num; i++){
+		// Choose a random number between 1 and 10
+		//Initialize a string <empty>
+			//Iterate random n times
+				// Push a random letter to the random string
+		// Push the random assembled string to the random array
 
+		randomArr.push();
+	}
+	// Return the random array
+}
 
 
 
