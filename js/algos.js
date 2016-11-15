@@ -1,5 +1,6 @@
 // DOMAIN LOGIC //
 
+// FIND LONGEST STRING METHOD
 // Declare function to grab the longest string
 function grabLongString(strArr){
 	// Declare the longest string to find <empty>
@@ -14,6 +15,13 @@ function grabLongString(strArr){
 	// Return the longest string
 	return longString;
 }
+
+// FIND A KEY-VALUE MATCH
+// Declare a function to check if any key-value's match
+	// Initialize a check value to false
+	// Iterate through each key of the first object
+		// Check if the key-value pair exists in second object
+		// If there is a match return check value set to true 
 
 
 // DRIVER CODE //
