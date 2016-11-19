@@ -86,3 +86,17 @@ end
 
 #=======================================================================
 # Reflection Section
+
+=begin
+
+  UNO. Hash Syntaxes: There are TWO types of syntax used. (1) The implicit syntax using the hash rocket (key => value) in which the key could be any object and (2) the alternative syntax structured (symbol_key: value), in which ONLY symbols can be used as keys.  Here we wanted to have clean strings as keys for workability, so the the hash rockets were used.  Otherwise the symbol notation is more efficient.
+
+  DOS. require_relative allows youto load a file relative to the directory of the source file, while require uses the current dirctory that you are running the file from.
+
+  TRES. Using the .each method you could iterate through each key-value pair.  Alternatively you could use .each_index to iterate through with an index variable.
+
+  CUATRO.  The use of instance variables, being passed into an instance method.  The instance variables scope is the entire class, so there is no need to pass variables into a method that it can already access, CDC!  
+
+  CINCO. I learned "git stash" and "git stash pop".  This was a pretty important discovery!  Also practice with iterations.  Especially after spending a week swimming in JavaScript it was good to go back and remember best practices in Ruby.  It was good practice in being comfortable bouncing between languages.
+
+=end
