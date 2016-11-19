@@ -32,41 +32,27 @@ class VirusPredictor
   # prints and returns string with horrifying prediction
   def predicted_deaths
     # predicted deaths is solely based on population density
-    if @population_density >= 200
-      factor = 0.4
-    elsif @population_density >= 150
-      factor = 0.3
-    elsif @population_density >= 100
-      factor = 0.2
-    elsif @population_density >= 50
-      factor = 0.1
-    else
-      factor = 0.05
-    end
-      number_of_deaths = (@population * factor).floor
-
+    factor = rangeGrabber(@population_density,
+      [200,150,100,50],
+      [0.4,0.3,0.2,0.1,0.05])
+    number_of_deaths = (@population * factor).floor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
-
   end
 
   # Determines based on pop_d, how quickly in months people gonna die
   # prints and returns string with horrifying prediction (with speed)
   def speed_of_spread #in months
-
-    if @population_density >= 200
-      speed = 0.5
-    elsif @population_density >= 150
-      speed = 1
-    elsif @population_density >= 100
-      speed = 1.5
-    elsif @population_density >= 50
-      speed = 2
-    else
-      speed = 2.5
-    end
-
+    speed = rangeGrabber(@population_density,
+      [200,150,100,50],
+      [0.5,1,1.5,2,2.5])
     puts " and will spread across the state in #{speed} months.\n\n"
+  end
 
+  def rangeGrabber(input, range, output)
+    range.each_index do |i|
+      return output[i] if input >= range[i]
+    end
+    output[-1]
   end
 
 end
