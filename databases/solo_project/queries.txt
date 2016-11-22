@@ -49,6 +49,6 @@ The Turbo Terrific|9|4
 
 5. Delete an item that meets some condition (you can choose a condition that makes sense).	
 
-	COMMAND:
-
-	OUTPUT:
+sqlite> DELETE FROM contestants WHERE justin_approval = "false";
+sqlite> SELECT * FROM contestants;
+2|The Creepy Coupe|2|true|3
