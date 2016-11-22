@@ -25,17 +25,25 @@ sqlite> SELECT * FROM contestants;
 
 3. Display the information in both tables using one query.
 
-	COMMAND:
-
-	OUTPUT:
+sqlite> SELECT * FROM contestants, num_wins WHERE contestants.num_wins_id = num_wins.id;
+1|The Mean Machine|0|false|1|1|0
+2|The Creepy Coupe|2|true|3|3|2
+3|The Army Surplus Special|6|false|4|4|3
+4|The Crimson Haybailer|4|false|4|4|3
+5|The Compact Pussycat|5|false|5|5|4
+6|The Turbo Terrific|9|false|5|5|4
 
 *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 
 4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
 
-	COMMAND:
-
-	OUTPUT:
+sqlite> SELECT contestants.name, contestants.number, num_wins.num_wins FROM contestants JOIN num_wins ON contestants.num_wins_id = num_wins.id;
+The Mean Machine|0|0
+The Creepy Coupe|2|2
+The Army Surplus Special|6|3
+The Crimson Haybailer|4|3
+The Compact Pussycat|5|4
+The Turbo Terrific|9|4
 
 *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 
