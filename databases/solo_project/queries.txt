@@ -1,0 +1,104 @@
+1. Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM contestants;
+1|The Mean Machine|0|true|1
+2|The Creepy Coupe|2|true|3
+3|The Army Surplus Special|6|false|4
+4|The Crimson Haybailer|4|false|4
+5|The Compact Pussycat|5|false|5
+6|The Turbo Terrific|9|false|5
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> UPDATE contestants SET justin_approval = 'false' WHERE num_wins_id = 1;
+sqlite> SELECT * FROM contestants;                                 
+1|The Mean Machine|0|false|1
+2|The Creepy Coupe|2|true|3
+3|The Army Surplus Special|6|false|4
+4|The Crimson Haybailer|4|false|4
+5|The Compact Pussycat|5|false|5
+6|The Turbo Terrific|9|false|5
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+3. Display the information in both tables using one query.
+
+sqlite> SELECT * FROM contestants, num_wins WHERE contestants.num_wins_id = num_wins.id;
+1|The Mean Machine|0|false|1|1|0
+2|The Creepy Coupe|2|true|3|3|2
+3|The Army Surplus Special|6|false|4|4|3
+4|The Crimson Haybailer|4|false|4|4|3
+5|The Compact Pussycat|5|false|5|5|4
+6|The Turbo Terrific|9|false|5|5|4
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+sqlite> SELECT contestants.name, contestants.number, num_wins.num_wins FROM contestants JOIN num_wins ON contestants.num_wins_id = num_wins.id;
+The Mean Machine|0|0
+The Creepy Coupe|2|2
+The Army Surplus Special|6|3
+The Crimson Haybailer|4|3
+The Compact Pussycat|5|4
+The Turbo Terrific|9|4
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).	
+
+sqlite> DELETE FROM contestants WHERE justin_approval = "false";
+sqlite> SELECT * FROM contestants;
+2|The Creepy Coupe|2|true|3
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+SQL JOINS
+
+- INNER JOIN:
+	sqlite> SELECT contestants.name, num_wins.num_wins FROM contestants INNER 	JOIN num_wins ON contestants.num_wins_id = num_wins.id;
+	The Creepy Coupe|2
+	The Mean Machine|0
+	The Turbo Terrific|3
+	The Crimson Haybailer|2
+
+- LEFT JOIN:
+	sqlite> SELECT name, number, num_wins FROM contestants LEFT JOIN num_wins ON contestants.number = num_wins.num_wins;
+	The Creepy Coupe|2|2
+	The Mean Machine|0|0
+	The Turbo Terrific|9|
+	The Crimson Haybailer|4|4
+
+- SELF JOIN:
+	sqlite> SELECT a.name, a.number, b.number FROM contestants a, contestants b WHERE a.number < b.number;
+	The Creepy Coupe|2|9
+	The Creepy Coupe|2|4
+	The Mean Machine|0|2
+	The Mean Machine|0|9
+	The Mean Machine|0|4
+	The Crimson Haybailer|4|9
+
+- CARTESIAN JOIN/CROSS JOIN:
+	sqlite> SELECT name, num_wins FROM contestants, num_wins;
+	The Creepy Coupe|0
+	The Creepy Coupe|1
+	The Creepy Coupe|2
+	The Creepy Coupe|3
+	The Creepy Coupe|4
+	The Mean Machine|0
+	The Mean Machine|1
+	The Mean Machine|2
+	The Mean Machine|3
+	The Mean Machine|4
+	The Turbo Terrific|0
+	The Turbo Terrific|1
+	The Turbo Terrific|2
+	The Turbo Terrific|3
+	The Turbo Terrific|4
+	The Crimson Haybailer|0
+	The Crimson Haybailer|1
+	The Crimson Haybailer|2
+	The Crimson Haybailer|3
+	The Crimson Haybailer|4
