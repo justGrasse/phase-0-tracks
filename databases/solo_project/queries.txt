@@ -1,0 +1,46 @@
+1. Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM contestants;
+1|The Mean Machine|0|true|1
+2|The Creepy Coupe|2|true|3
+3|The Army Surplus Special|6|false|4
+4|The Crimson Haybailer|4|false|4
+5|The Compact Pussycat|5|false|5
+6|The Turbo Terrific|9|false|5
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> UPDATE contestants SET justin_approval = 'false' WHERE num_wins_id = 1;
+sqlite> SELECT * FROM contestants;                                 
+1|The Mean Machine|0|false|1
+2|The Creepy Coupe|2|true|3
+3|The Army Surplus Special|6|false|4
+4|The Crimson Haybailer|4|false|4
+5|The Compact Pussycat|5|false|5
+6|The Turbo Terrific|9|false|5
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+3. Display the information in both tables using one query.
+
+	COMMAND:
+
+	OUTPUT:
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+	COMMAND:
+
+	OUTPUT:
+
+*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).	
+
+	COMMAND:
+
+	OUTPUT:
