@@ -82,12 +82,17 @@ end
 
 # DRIVER CODE
 
-# test add_activity method
+# test check-in method
 check_in(db)
+
+# set the list of activities:
+db.execute("DELETE FROM todo")
 add_activity(db, "Ab Rolls")
 add_activity(db, "Push Ups")
 add_activity(db, "CodeWars Challenge")
-complete_activity(db, "CodeWars Challenge")
+
+# print today's to-do list:
 print_todo_list(db)
+
 delete_table(db)
 print_full_list(db)
