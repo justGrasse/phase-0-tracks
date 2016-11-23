@@ -1,5 +1,7 @@
 # Justin's Daily To-Do List
 
+# DOMAIN LOGIC (+ ORM w/SQLite3)
+
 # require gems
 require 'sqlite3'
 require 'faker'
@@ -22,8 +24,23 @@ db.execute(create_table_cmd)
 
 # create method to add activities
 def add_activity(db, activity)
-	db.execute("INSERT INTO todo (activity) VALUES (?)", [activity])
+	db.execute("INSERT INTO todo (activity, done) 
+		VALUES (?, 'false')", [activity])
 end
+
+# create method to print unfinished activities
+def print_todo_list(db)
+	todo_list = db.execute("SELECT * FROM todo WHERE done='false'")
+	puts "Here's your daily To-Do List:"
+	puts '*~'*20+'*'
+	todo_list.each do |activity|
+		puts activity['activity']
+	end
+end
+
+
+# DRIVER CODE
 
 # test add_activity method
 add_activity(db, "Push-ups")
+print_todo_list(db)
