@@ -61,6 +61,14 @@ def print_todo_list(db)
 	todo_list.each { |act| puts act['activity'] }
 end
 
+# create method to print detailed todo_list
+def print_full_list(db)
+	print_todo_list(db)
+	todo_list = db.execute("SELECT * FROM todo WHERE done='true'")
+	puts
+	todo_list.each { |act| puts "#{act['activity']} - COMPLETE" }
+end
+
 # create method to wipe table clean (always double checks!)
 def delete_table(db)
 	puts ('Are you sure you want to wipe the table? (y/n)')
@@ -82,4 +90,4 @@ add_activity(db, "CodeWars Challenge")
 complete_activity(db, "CodeWars Challenge")
 print_todo_list(db)
 delete_table(db)
-print_todo_list(db)
+print_full_list(db)
