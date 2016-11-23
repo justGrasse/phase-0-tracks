@@ -17,3 +17,13 @@ create_table_cmd = <<-SQL
 	) 
 SQL
 
+# create todo list table
+db.execute(create_table_cmd)
+
+# create method to add activities
+def add_activity(db, activity)
+	db.execute("INSERT INTO todo (activity) VALUES (?)", [activity])
+end
+
+# test add_activity method
+add_activity(db, "Push-ups")
