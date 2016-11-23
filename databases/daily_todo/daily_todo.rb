@@ -38,9 +38,19 @@ def print_todo_list(db)
 	end
 end
 
+# create method to wipe table clean
+def delete_table(db)
+	puts ('Are you sure you want to wipe the table? (y/n)')
+	if gets.chomp == 'y'
+		db.execute("DELETE FROM todo")
+	end
+end
+
 
 # DRIVER CODE
 
 # test add_activity method
 add_activity(db, "Push-ups")
+print_todo_list(db)
+delete_table(db)
 print_todo_list(db)
