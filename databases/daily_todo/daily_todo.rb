@@ -42,9 +42,14 @@ def check_in(db)
 end
 
 # create method to add activities
-def add_activity(db, activity)
+def add_activity(db, act)
 	db.execute("INSERT INTO todo (activity, done) 
-		VALUES (?, 'false')", [activity])
+		VALUES (?, 'false')", [act])
+end
+
+# create method to complete activity
+def complete_activity(db, act)
+	db.execute("UPDATE todo SET done='true' WHERE activity = ?", [act])
 end
 
 # create method to print unfinished activities
@@ -53,9 +58,7 @@ def print_todo_list(db)
 	today = Time.new.strftime("%B %d, %Y")
 	puts "\nYour daily To-Do List for #{today}:"
 	puts '*~'*20+'*'
-	todo_list.each do |activity|
-		puts activity['activity']
-	end
+	todo_list.each { |act| puts act['activity'] }
 end
 
 # create method to wipe table clean (always double checks!)
@@ -76,6 +79,7 @@ check_in(db)
 add_activity(db, "Ab Rolls")
 add_activity(db, "Push Ups")
 add_activity(db, "CodeWars Challenge")
+complete_activity(db, "CodeWars Challenge")
 print_todo_list(db)
 delete_table(db)
 print_todo_list(db)
