@@ -14,8 +14,17 @@ db.results_as_hash = true
 create_todo_table_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS todo(
 		id INTEGER PRIMARY KEY,
-		activity VARCHAR(255),
-		done BOOLEAN
+		activity_id INT,
+		done BOOLEAN,
+		FOREIGN KEY (activity_id) REFERENCES activities(id)
+	) 
+SQL
+
+# create SQL command for activity table
+create_todo_table_cmd = <<-SQL
+	CREATE TABLE IF NOT EXISTS activities(
+		id INTEGER PRIMARY KEY,
+		name VARCHAR(255)
 	) 
 SQL
 
@@ -42,9 +51,8 @@ def check_in(db)
 end
 
 # create method to add activities
-def add_activity(db, act)
-	db.execute("INSERT INTO todo (activity, done) 
-		VALUES (?, 'false')", [act])
+def add_activity(db, name)
+	db.execute("INSERT INTO activities (name) VALUES (name)", [name])
 end
 
 # create method to complete activity
@@ -85,14 +93,19 @@ end
 # test check-in method
 check_in(db)
 
-# set the list of activities:
+# sets a default list of activities:
 db.execute("DELETE FROM todo")
 add_activity(db, "Ab Rolls")
 add_activity(db, "Push Ups")
 add_activity(db, "CodeWars Challenge")
+
 
 # print today's to-do list:
 print_todo_list(db)
 
 delete_table(db)
 print_full_list(db)
+
+# To-Do List Ideas:
+# - Default Table of ideas to be included each day?
+# - Create Table of available activities
