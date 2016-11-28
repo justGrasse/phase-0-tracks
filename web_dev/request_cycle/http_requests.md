@@ -34,9 +34,15 @@
   550: Permission Denied (account does not have permission to perform the action attempted)
 
 
-2. **What is the difference between a GET request and a POST request?**
+2. **What is the difference between a GET request and a POST request?
 
-	Answer. 
+  GET: A GET method requests data from a source
+  
+  >>> Used only to retrieve data 
+
+  POST: A POST method submits data to a source to be processed 
+  
+  >>> A query string (name/value pair) is provided to the server 
 
 3. **What is the difference between a GET request and a POST request? When might each be used?**
 
