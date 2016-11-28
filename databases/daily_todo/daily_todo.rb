@@ -61,8 +61,8 @@ def add_activity(db, name)
 end
 
 # create method to delete activities
-def delete_activity(db, name)
-	db.execute("DELETE FROM activities WHERE name=?", [name])
+def delete_activity(db, act_id)
+	db.execute("DELETE FROM activities WHERE id=?", [act_id])
 end
 
 # create method to add activities to the todo list

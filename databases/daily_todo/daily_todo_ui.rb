@@ -43,7 +43,15 @@ until done
 		end		
 	# 2. ADD/DELETE FROM TODO LIST	
 	elsif choice == '2' # Include/Remove from ToDo List
-
+		print_full(db)
+		choice2 = add_delete
+		if choice1 == "ADD"
+			puts "Please enter the activity you would like to add:"
+			add_todo(db, gets.chomp)
+		elsif choice1 == "DELETE"
+			puts "Please enter the activity you would like to delete:"
+			delete_todo(db, gets.chomp)
+		end		
 	# 3. MARK ACTIVITY AS COMPLETE
 	elsif choice == '3' # Mark activity as complete
 		print_full(db)
