@@ -77,27 +77,27 @@ def delete_todo(db, act_id)
 end
 
 # create method to complete activity
-def complete_activity(db, act)
-	db.execute("UPDATE todo SET done='true' WHERE activity = ?", [act])
+def complete_activity(db, act_id)
+	db.execute("UPDATE todo SET done='true' WHERE activity_id = ?", [act_id])
 end
 
 # create method to print unfinished activities
 def print_todo_list(db)
-	todo_list = db.execute("SELECT * FROM todo WHERE done='false'")
+	todo_list = db.execute("SELECT * FROM todo JOIN activities 
+		ON activities.id = todo.activity_id AND todo.done='false'")
 	today = Time.new.strftime("%B %d, %Y")
 	puts "\nYour daily To-Do List for #{today}:"
 	puts '*~'*20+'*'
-	puts "todo_list"
-	print todo_list
-	todo_list.each { |act| puts act['id'] }
+	todo_list.each { |act| puts act['name'] }
 end
 
 # create method to print detailed todo_list
 def print_full(db)
 	print_todo_list(db)
-	todo_list = db.execute("SELECT * FROM todo WHERE done='true'")
+	todo_list = db.execute("SELECT * FROM todo JOIN activities 
+		ON activities.id = todo.activity_id AND todo.done='true'")
 	puts
-	todo_list.each { |act| puts "#{act['activity']} - COMPLETE" }
+	todo_list.each { |act| puts "#{act['name']} - COMPLETE" }
 end
 
 # create method to print activities
@@ -147,25 +147,27 @@ end
 
 # DRIVER CODE
 
-# test check-in method
+# Test check-in method
 check_in(db)
 
-# sets a default list of activities:
+# Set a default list of activities/todo list:
 db.execute("DELETE FROM todo")
 db.execute("DELETE FROM activities")
-# db.execute("DELETE FROM log")
-add_activity(db, "Ab Rolls")
-add_activity(db, "Push Ups")
+add_activity(db, "Read a Chapter")
+add_activity(db, "20 Push Ups")
 add_activity(db, "CodeWars Challenge")
+add_activity(db, "Water Plants")
 add_todo(db,1)
 add_todo(db,2)
 add_todo(db,3)
 add_todo(db,4)
-delete_todo(db,4)
-delete_activity(db, "Ab Rolls")
+complete_activity(db,2)
+complete_activity(db,4)
 print_activities(db)
+
+# Clean up the check-in log
+# db.execute("DELETE FROM log")
 
 # print today's to-do list:
 print_todo_list(db)
-puts "print print_full"
 print_full(db)
