@@ -186,23 +186,23 @@ end
 # DRIVER CODE
 
 # Test check-in method
-check_in(db)
+# check_in(db)
 
 # Set a default list of activities/todo list:
-db.execute("DELETE FROM todo")
-db.execute("DELETE FROM activities")
-add_activity(db, "Read a Chapter")
-add_activity(db, "20 Push Ups")
-add_activity(db, "15 Ab Rolls")
-add_activity(db, "CodeWars Challenge")
-add_activity(db, "Water Plants")
-add_activity(db, "Run a Mile")
-add_todo(db,1)
-add_todo(db,2)
-add_todo(db,3)
-add_todo(db,4)
-complete_activity(db,2)
-complete_activity(db,4)
+# db.execute("DELETE FROM todo")
+# db.execute("DELETE FROM activities")
+# add_activity(db, "Read a Chapter")
+# add_activity(db, "20 Push Ups")
+# add_activity(db, "15 Ab Rolls")
+# add_activity(db, "CodeWars Challenge")
+# add_activity(db, "Water Plants")
+# add_activity(db, "Run a Mile")
+# add_todo(db,1)
+# add_todo(db,2)
+# add_todo(db,3)
+# add_todo(db,4)
+# complete_activity(db,2)
+# complete_activity(db,4)
 
 # Clean up the check-in log
 # db.execute("DELETE FROM log")
