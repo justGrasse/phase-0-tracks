@@ -118,6 +118,21 @@ def print_unfinished(db)
 	todo_list.each { |act| puts "#{act['id']} - #{act['name']}" }
 end
 
+# create method to print activities NOT on the todo list
+def print_unused(db)
+	act_list = db.execute("SELECT * FROM activities")
+	todo_list = db.execute("SELECT activity_id FROM todo")
+	puts "\nActivities Available (i.e. Not Being Used):"
+	puts '*~'*20+'*'
+	act_list.each { |act| 
+		exists = false
+		todo_list.each{ |todo_act| 
+			exists = true if act["id"] == todo_act["activity_id"]
+		}
+		puts "#{act['id']} - #{act['name']}" if !exists 
+	}
+end
+
 # create method to print a menu (return choice)
 def print_menu(db)
 	puts "\nDaily To-Do List Menu"
@@ -166,8 +181,10 @@ db.execute("DELETE FROM todo")
 db.execute("DELETE FROM activities")
 add_activity(db, "Read a Chapter")
 add_activity(db, "20 Push Ups")
+add_activity(db, "15 Ab Rolls")
 add_activity(db, "CodeWars Challenge")
 add_activity(db, "Water Plants")
+add_activity(db, "Run a Mile")
 add_todo(db,1)
 add_todo(db,2)
 add_todo(db,3)
@@ -182,3 +199,4 @@ complete_activity(db,4)
 # print_todo_list(db)
 # print_full(db)
 # print_unfinished(db)
+# print_unused(db)

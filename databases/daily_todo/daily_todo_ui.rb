@@ -32,23 +32,23 @@ until done
 	choice = print_menu(db)
 	# 1. ADD/DELETE ACTIVITY FROM ACTIVITY LIST
 	if choice == '1'
+		choice_1 = add_delete
 		print_activities(db)
-		choice1 = add_delete
-		if choice1 == "ADD"
+		if choice_1 == "ADD"
 			puts "Please enter the activity you would like to add:"
 			add_activity(db, gets.chomp)
-		elsif choice1 == "DELETE"
+		elsif choice_1 == "DELETE"
 			puts "Please enter the activity you would like to delete:"
 			delete_activity(db, gets.chomp)
 		end		
 	# 2. ADD/DELETE FROM TODO LIST	
 	elsif choice == '2' # Include/Remove from ToDo List
-		print_full(db)
-		choice2 = add_delete
-		if choice1 == "ADD"
+		choice_2 = add_delete
+		if choice_2 == "ADD"
+			print_unused(db)
 			puts "Please enter the activity you would like to add:"
 			add_todo(db, gets.chomp)
-		elsif choice1 == "DELETE"
+		elsif choice_2 == "DELETE"
 			puts "Please enter the activity you would like to delete:"
 			delete_todo(db, gets.chomp)
 		end		
