@@ -30,6 +30,7 @@ done = false
 until done
 	print_full(db)
 	choice = print_menu(db)
+
 	# 1. ADD/DELETE ACTIVITY FROM ACTIVITY LIST
 	if choice == '1'
 		choice_1 = add_delete
@@ -41,24 +42,31 @@ until done
 			puts "Please enter the activity you would like to delete:"
 			delete_activity(db, gets.chomp)
 		end		
+
 	# 2. ADD/DELETE FROM TODO LIST	
-	elsif choice == '2' # Include/Remove from ToDo List
+	elsif choice == '2'
 		choice_2 = add_delete
 		if choice_2 == "ADD"
 			print_unused(db)
 			puts "Please enter the activity you would like to add:"
 			add_todo(db, gets.chomp)
 		elsif choice_2 == "DELETE"
+			print_todo_ids(db)
 			puts "Please enter the activity you would like to delete:"
 			delete_todo(db, gets.chomp)
 		end		
+
 	# 3. MARK ACTIVITY AS COMPLETE
-	elsif choice == '3' # Mark activity as complete
+	elsif choice == '3' 
 		print_full(db)
 		print_unfinished(db)
 		puts "Which activity did you finish? (enter NUMBER or NVM)"
 		complete_activity(db,gets.chomp)
+	
+# 4. EXIT
 	else
 		done = true
+
 	end
+
 end

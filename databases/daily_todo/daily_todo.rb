@@ -81,6 +81,8 @@ def complete_activity(db, act_id)
 	db.execute("UPDATE todo SET done='true' WHERE activity_id = ?", [act_id])
 end
 
+#      *** PRETTY PRINT METHODS ***
+
 # create method to print unfinished activities
 def print_todo_list(db)
 	todo_list = db.execute("SELECT * FROM todo JOIN activities 
@@ -115,6 +117,16 @@ def print_unfinished(db)
 	puts "\nUnfinished Activities for Today:"
 	puts '*~'*20+'*'
 	puts "ALL ACTIVITIES HAVE BEEN COMPLETED" if todo_list.empty?
+	todo_list.each { |act| puts "#{act['id']} - #{act['name']}" }
+end
+
+# create method to print items in the todo list with id's
+def print_todo_ids(db)
+	todo_list = db.execute("SELECT * FROM todo JOIN activities 
+		ON activities.id = todo.activity_id")
+	puts "\nActivities in Your To-Do List:"
+	puts '*~'*20+'*'
+	puts "NO ACTIVITIES FOUND" if todo_list.empty?
 	todo_list.each { |act| puts "#{act['id']} - #{act['name']}" }
 end
 
@@ -200,3 +212,4 @@ complete_activity(db,4)
 # print_full(db)
 # print_unfinished(db)
 # print_unused(db)
+# print_todo_ids(db)
