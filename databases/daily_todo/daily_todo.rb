@@ -49,6 +49,9 @@ def check_in(db)
 	timeArr = currentArr[1].split(':').join('').to_i
 	db.execute("INSERT INTO log (day, time) 
 		VALUES (?, ?)", [dayArr, timeArr])
+	log = db.execute("SELECT * FROM log")
+	# Return true if its the first check-in of the day
+	log.length==1 || !log[-1]['day'] == log[-2]['day']
 end
 
 # create method to add activities
@@ -71,7 +74,7 @@ def print_todo_list(db)
 end
 
 # create method to print detailed todo_list
-def print_full_list(db)
+def print_full(db)
 	print_todo_list(db)
 	todo_list = db.execute("SELECT * FROM todo WHERE done='true'")
 	puts
@@ -106,6 +109,7 @@ check_in(db)
 # sets a default list of activities:
 db.execute("DELETE FROM todo")
 db.execute("DELETE FROM activities")
+# db.execute("DELETE FROM log")
 add_activity(db, "Ab Rolls")
 add_activity(db, "Push Ups")
 add_activity(db, "CodeWars Challenge")
@@ -115,7 +119,7 @@ print_activities(db)
 print_todo_list(db)
 
 delete_table(db)
-print_full_list(db)
+print_full(db)
 
 # To-Do List Ideas:
 # - Default Table of ideas to be included each day?
