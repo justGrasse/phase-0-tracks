@@ -96,7 +96,6 @@ def print_full(db)
 	print_todo_list(db)
 	todo_list = db.execute("SELECT * FROM todo JOIN activities 
 		ON activities.id = todo.activity_id AND todo.done='true'")
-	puts
 	todo_list.each { |act| puts "#{act['name']} - COMPLETE" }
 end
 
@@ -109,20 +108,23 @@ def print_activities(db)
 	todo_list.each { |act| puts "#{act['id']} - #{act['name']}" }
 end
 
-# create method to wipe table clean (always double checks!)
-def delete_table(db)
-	puts ('Are you sure you want to wipe the table? (y/n)')
-	if gets.chomp == 'y'
-		db.execute("DELETE FROM todo")
-		db.execute("DELETE FROM log") 
-	end
+# create method to print unfinished activities with id's
+def print_unfinished(db)
+	todo_list = db.execute("SELECT * FROM todo JOIN activities 
+		ON activities.id = todo.activity_id AND todo.done='false'")
+	puts "\nUnfinished Activities for Today:"
+	puts '*~'*20+'*'
+	puts "ALL ACTIVITIES HAVE BEEN COMPLETED" if todo_list.empty?
+	todo_list.each { |act| puts "#{act['id']} - #{act['name']}" }
 end
 
 # create method to print a menu (return choice)
 def print_menu(db)
-	puts "\nChoose 1, 2, 3, or 4:"
+	puts "\nDaily To-Do List Menu"
+	puts '*~'*20+'*'
+	puts "Choose 1, 2, 3, or 4:"
 	puts '1 - Add/Delete an activity to the activities list'
-	puts '2 - Include/Remove an activity from the to-do list'
+	puts '2 - Add/Delete an activity from the to-do list'
 	puts '3 - Mark an activity as complete'
 	puts '4 - Exit'
 	choice = gets.chomp
@@ -144,6 +146,15 @@ def add_delete
 	add_delete
 end
 
+# create method to wipe table clean (always double checks!)
+def delete_table(db)
+	puts ('Are you sure you want to wipe the table? (y/n)')
+	if gets.chomp == 'y'
+		db.execute("DELETE FROM todo")
+		db.execute("DELETE FROM log") 
+	end
+end
+
 
 # DRIVER CODE
 
@@ -163,11 +174,11 @@ add_todo(db,3)
 add_todo(db,4)
 complete_activity(db,2)
 complete_activity(db,4)
-print_activities(db)
 
 # Clean up the check-in log
 # db.execute("DELETE FROM log")
 
-# print today's to-do list:
-print_todo_list(db)
-print_full(db)
+# Print today's to-do list:
+# print_todo_list(db)
+# print_full(db)
+# print_unfinished(db)
