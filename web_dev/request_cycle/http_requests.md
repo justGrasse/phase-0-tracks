@@ -48,10 +48,8 @@
 
   >>> A POST may be used to create a new resource
 
-3. **What is the difference between a GET request and a POST request? **
+3. **What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?**
 
-	Answer. 
-
-4. **What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?**
-
-	Answer. 
+  A Cookie is a small text file that is stored on your computer when requesting and browsing web pages.  The cookie, and what it stores, is determined by the server-side.  As the client browses the website, the server can update the cookie's  name-value pairs in order to store information about that client to the browser.
+  
+  When an HTTP request is made, the cookie is passed as a header for the server to see relevant history of the client.  then the server will respond to set or update name-value pairs in the cookie field of the response header.
