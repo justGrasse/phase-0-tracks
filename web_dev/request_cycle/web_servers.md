@@ -19,4 +19,4 @@
 
 3. **Why is it considered a bad idea to run programs as the root user on a Linux system?**
 
-  Answer
+  Security: the root user should control all the administrative tasks in order to prevent crashes and vulnerabilities from impairing the machine.  If you're logged in as root, than ALL applications are running with root privileges, and viruses (or nasty bugs) now have access everywhere.
