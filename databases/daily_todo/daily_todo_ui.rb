@@ -14,3 +14,14 @@ Menu: Choose (Add/Delete an activity, Add/Delete from to-do list, Mark as finish
 
 
 =end
+
+require_relative 'daily_todo'
+
+# create SQLite3 database
+db = SQLite3::Database.new("todo.db")
+db.results_as_hash = true
+
+
+# CHECK IN and update if need be
+db.execute("UPDATE todo SET done='false'") if check_in(db)
+puts "ui!!!!"
