@@ -13,7 +13,9 @@
 
 2. **In your own words, what is a VPS (virtual private server)? What, according to your research, are the advantages of using a VPS?**
 
-  Answer
+  A VPS is a magical machine that is hosted by an online provider, that can be accessed remotely by customers.  
+
+  VPS can be a cost effective way to host a website.  It allows for scalability: to start small and start to accrue resources that are needed as the server grows.  VPS also allows for greater stability relative to shared hosting, which is affected by the traffic and activities of other customers.   
 
 3. **Why is it considered a bad idea to run programs as the root user on a Linux system?**
 
