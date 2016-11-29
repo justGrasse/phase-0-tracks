@@ -21,7 +21,9 @@ $(document).ready(function(){
 
 	// jQuery Effects:
 	// show(), hide(), toggle()
-	// 
+	// fadeIn(), fadeOut(), fadeToggle()
+	// slideDown(), slideUp(), slideToggle()
+
 	$("#boxButton").click(function(){
 		$("#box1").fadeToggle(500).css("display","inline-block");
 		$("#box2").fadeToggle(1000).css("display","inline-block");
@@ -30,6 +32,10 @@ $(document).ready(function(){
 		$("#box5").fadeToggle(2500).css("display","inline-block");
 		$("#box6").fadeToggle(3000).css("display","inline-block");
 		$("#box7").fadeToggle(3500).css("display","inline-block");
+	});
+
+	$("li").click(function(){
+		$("h1").slideToggle();
 	});
 
 
