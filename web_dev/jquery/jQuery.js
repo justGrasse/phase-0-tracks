@@ -34,7 +34,7 @@ $(document).ready(function(){
 		$("#box7").fadeToggle(3500).css("display","inline-block");
 	});
 
-	$("li").click(function(){
+	$(".even_li").click(function(){
 		$("h1").slideToggle();
 	});
 
@@ -55,11 +55,24 @@ $(document).ready(function(){
 			width: '150px',
 			height: '150px'
 		},'slow',function(){
-			alert('animation DONE');
+			alert('animation: DONE');
 		});
 	});
 
+	// Get Content: text(), html(), val(), attr("href"), 
+	$("h1").click(function(){
+		alert("This says: " + $(this).html());
+	});
 
+	// Set Contents/Attributes
+	$(".odd_li").click(function(){
+		$(".odd_li").text("ODDS!");
+	});
+
+	$("figcaption").click(function(){
+		$(this).attr("id","figgy");
+		$("#figgy").text("FIGGY!!!");
+	});
 
 
 
