@@ -38,7 +38,10 @@ $(document).ready(function(){
 		$("h1").slideToggle();
 	});
 
-	// Animatethe boxes by clicking the last one
+	// Animate the boxes by clicking the last one
+	// Notice .animate({parameters},speed,callback)
+	// The callback comes up AFTER the animation is finished
+	// You could also HALT animations/effects with .stop()
 	$("#box7").click(function(){
 		$(this).animate({
 			width: '150px',
@@ -51,6 +54,8 @@ $(document).ready(function(){
 		$("#box2").animate({
 			width: '150px',
 			height: '150px'
+		},'slow',function(){
+			alert('animation DONE');
 		});
 	});
 
