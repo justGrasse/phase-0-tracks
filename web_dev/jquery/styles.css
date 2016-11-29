@@ -66,3 +66,52 @@ hr {
 	background-color: midnightblue; /*Firefox+Opera*/
 	color: midnightblue; /*IE 7*/
 }
+
+#boxSection {
+
+}
+
+.box {
+	width: 60px;
+	height: 60px;
+	display: none;
+}
+
+#boxButton {
+	background-color: gray;
+	display: inline-block;	
+}
+
+#box1 {
+	background-color: red;
+}
+
+#box2 {
+	background-color: orange;
+}
+
+#box3 {
+	background-color: yellow;
+}
+
+#box4 {
+	background-color: green;
+}
+
+#box5 {
+	background-color: blue;
+}
+
+#box6 {
+	background-color: indigo;
+}
+
+#box7 {
+	background-color: violet;
+}
+
+
+	"width:80px;height:80px;display:none;background-color:blue;"></div>	
+
+
+
