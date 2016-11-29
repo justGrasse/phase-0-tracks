@@ -15,7 +15,6 @@ h2, h3 {
 nav {
 	background-color: azure;
 	display: block;
-	position: fixed;
 	width: 100%;
 }
 
@@ -32,7 +31,7 @@ nav ul li {
 }
 
 main {
-	margin-top: 80px;
+	margin-top: 40px;
 }
 
 em {
@@ -49,7 +48,7 @@ figure {
 }
 
 img {
-	width: 400px;
+	width: 300px;
 	background-color: azure;
 	border: 3px solid midnightblue;
 }

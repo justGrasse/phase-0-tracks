@@ -8,3 +8,4 @@
 4. Populate the HTML and CSS with some basic content.
 5. Find a comprehensive cheat sheet. (Bookmark it!)
 6. Include jQuery commands with comments.
+7. Post to SLACK whatI discover! (w3 jQuery Tutorial)
