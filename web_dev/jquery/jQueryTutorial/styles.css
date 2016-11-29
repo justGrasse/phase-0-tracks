@@ -8,8 +8,7 @@ button {
 }
 
 .buttonBox {
-	/*display: none;*/
-	display: inline-block;
+	display: none;
 }
 
 #redButton {
