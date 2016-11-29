@@ -38,6 +38,22 @@ $(document).ready(function(){
 		$("h1").slideToggle();
 	});
 
+	// Animatethe boxes by clicking the last one
+	$("#box7").click(function(){
+		$(this).animate({
+			width: '150px',
+			height: '150px'
+		});
+		$("#box4").animate({
+			width: '30px',
+			height: '30px'
+		});
+		$("#box2").animate({
+			width: '150px',
+			height: '150px'
+		});
+	});
+
 
 
 

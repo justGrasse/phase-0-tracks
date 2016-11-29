@@ -74,6 +74,7 @@ hr {
 .box {
 	width: 60px;
 	height: 60px;
+	vertical-align: top;
 	display: none;
 }
 
