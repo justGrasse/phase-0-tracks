@@ -40,7 +40,11 @@ get '/students' do
       response << "Campus: #{student['campus']}<br><br>"
     end
   end
-  response
+  # if response.length == 0
+  #   "Sorry, no matches. =["
+  # else
+    response
+  # end
 end
 
 # write a GET route that retrieves
