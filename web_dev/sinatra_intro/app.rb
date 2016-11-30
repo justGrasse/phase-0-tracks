@@ -57,4 +57,15 @@ get '/contact' do
 end
 
 
+# write a GET route that 
+# takes a name parameter
+
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Great job, #{name}!"
+  else
+    "Great Job!"
+  end
+end
 
