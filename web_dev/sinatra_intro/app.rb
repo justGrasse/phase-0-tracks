@@ -69,3 +69,15 @@ get '/great_job' do
   end
 end
 
+
+
+# write a GET route that 
+# adds 2 numbers
+
+get '/:num_1/plus/:num_2' do
+  num_1 = params[:num_1]
+  num_2 = params[:num_2]
+  "#{num_1} + #{num_2} = #{num_1.to_i+num_2.to_i}"
+end
+
+
