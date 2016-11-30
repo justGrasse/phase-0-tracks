@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grades!</title>
+  <style>
+  div h1{
+    font-size: xx-large;
+    font-family: sans-serif;
+  }
+  button{
+    background-color:red;
+    color: white;
+    font-size: 2.5em;
+    width: 500px;
+    height: 100px;
+  }
+</style>
+</head>
+<body>
+    <h1>Get your grades!</h1>
+    <p>Steaming hot grades, fresh off the printer!!!!</p>
+  <div>
+    <h2>
+    <%=@message%>
+    <%=@grades%>
+        </h2>
+    <form method="get" action="grade/real">
+    <button type="submit">your real grade</button>
+    </form>
+  </div>
+</body>
+
+</html>

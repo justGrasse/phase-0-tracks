@@ -24,4 +24,35 @@ post '/students' do
   redirect '/'
 end
 
+get '/grade' do
+  @grades = 100
+  @message = "What you wish your grade was: "
+  erb :grade
+end
+
+get '/grade/real' do
+  # db.results_as_hash = false
+  # rng_array=db.execute("SELECT students.age FROM students")
+  puts "This is GET /grade/real"
+  @grades = Random.rand(1..100)
+  @message = "What your ACTUAL grade is: "
+  puts "@grades is #{@grades}"
+  erb :grade
+end
+
+get '/grade/grade/real' do
+  redirect '/grade/real'
+end
+
+# post '/grade/rng' do
+
+# end
+
+
+# post '/grade' do
+ 
+# end
+
+
+
 # add static resources
