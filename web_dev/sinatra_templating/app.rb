@@ -50,9 +50,11 @@ get '/campus' do
 end
 
 post '/campus' do
-  name = params['name']
+  campus = params['campus']
   abbr = params['abbr']
-  db.execute("INSERT INTO campus (name, ABR) VALUES (?,?)",[name, abbr])
+  puts "NAME: #{campus}"
+  puts "ABBR: #{abbr}"
+  db.execute("INSERT INTO campuses (name, ABR) VALUES (?,?)",[campus, abbr])
   redirect '/campus'
 end
 
