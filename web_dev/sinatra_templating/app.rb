@@ -44,15 +44,17 @@ get '/grade/grade/real' do
   redirect '/grade/real'
 end
 
-# post '/grade/rng' do
+get '/campus' do 
+  @campuses = db.execute("SELECT name, ABR FROM campuses")
+  erb :campus
+end
 
-# end
-
-
-# post '/grade' do
- 
-# end
-
+post '/campus' do
+  name = params['name']
+  abbr = params['abbr']
+  db.execute("INSERT INTO campus (name, ABR) VALUES (?,?)",[name, abbr])
+  redirect '/campus'
+end
 
 
 # add static resources

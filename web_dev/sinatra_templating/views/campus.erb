@@ -4,28 +4,30 @@
   <title>Campus</title>
   <style>
   div h1{
-    font-size: xx-large;
     font-family: sans-serif;
   }
   button{
-    background-color:red;
+    background-color: blue;
     color: white;
-    font-size: 2.5em;
-    width: 500px;
-    height: 100px;
   }
 </style>
 </head>
 <body>
-    <h1>Get your grades!</h1>
-    <p>Steaming hot grades, fresh off the printer!!!!</p>
+    <h1>Here's where Dev Bootcamp is currently located</h1>
+    <ul>
+      <% @campuses.each do |campus| %>
+        <li>- <%= campus['name'] %>(<%= campus['ABR'] %>)</li>
+      <% end %>
+
+      
+    </ul>
   <div>
     <h2>
-    <%=@message%>
-    <%=@grades%>
         </h2>
-    <form method="get" action="grade/real">
-    <button type="submit">your real grade</button>
+    <form method="POST" action="/campus">
+    <input type="text" name="campus" placeholder="New Campus">
+    <input type="text" name="abbr" placeholder="Abbrev (3 LTR MAX)">
+    <button type="submit">ADD</button>
     </form>
   </div>
 </body>
